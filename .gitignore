@@ -25,6 +25,7 @@ build/
 
 # Build artifacts
 dist/
+*.dmg
 
 # Private/sensitive data
 *.pem
