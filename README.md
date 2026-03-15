@@ -12,3 +12,4 @@ Home security camera for macOS.
 - Low/Medium/High video quality
 - Browse and playback recordings
 - Storage management
+- Push notifications for arm/disarm events

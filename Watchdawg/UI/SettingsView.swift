@@ -11,6 +11,7 @@ struct SettingsView: View {
         ScrollView {
             VStack(spacing: 20) {
                 qualitySection
+                notificationsSection
                 storageSection
                 autoDeleteSection
                 aboutSection
@@ -47,6 +48,27 @@ struct SettingsView: View {
                 Text("Lower quality uses less storage but may reduce clarity")
                     .font(.caption)
                     .foregroundStyle(.secondary)
+            }
+        }
+    }
+
+    // MARK: - Notifications Section
+
+    private var notificationsSection: some View {
+        SettingsCard(title: "Notifications", icon: "bell.fill") {
+            VStack(spacing: 12) {
+                Toggle("Enable Notifications", isOn: Binding(
+                    get: { appState.notificationsEnabled },
+                    set: { appState.setNotificationsEnabled($0) }
+                ))
+
+                Divider()
+
+                Toggle("Notification Sound", isOn: Binding(
+                    get: { appState.notificationSoundEnabled },
+                    set: { appState.setNotificationSoundEnabled($0) }
+                ))
+                .disabled(!appState.notificationsEnabled)
             }
         }
     }

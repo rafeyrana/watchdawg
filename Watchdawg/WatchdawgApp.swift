@@ -6,6 +6,7 @@ struct WatchdawgApp: App {
         WindowGroup {
             ContentView()
                 .task {
+                    NotificationManager.shared.requestPermission()
                     TTLCleaner.shared.cleanExpiredRecordings()
                 }
         }
