@@ -1,0 +1,495 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05028159A65A96C6AFD7F853 /* MockCameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEE53627EF7B99905DA65C2 /* MockCameraManager.swift */; };
+		13120D3B300FF03456FA84E9 /* WatchdawgApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD8AE9B1DB7226140005D02 /* WatchdawgApp.swift */; };
+		22F0F1336DC025A89EF91039 /* VideoQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B475F3A2E9984A72D92AFC /* VideoQuality.swift */; };
+		3BED8614659D3AC762497B3C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A396FF4F1A9E8AE676912701 /* SettingsView.swift */; };
+		3C12D79BDCF5BE665D86413A /* TTLCleaner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9915426A3A3012425F6A488 /* TTLCleaner.swift */; };
+		571BDD6F8715421B5277AA73 /* RecordingStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6CA3A650A4E4B908DA04F9 /* RecordingStorage.swift */; };
+		6364ABCD675926C912DFE7F3 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADB16CFCA3D3EDE6F7309C7 /* CameraManager.swift */; };
+		7937F50B3FDFA1450692C5C5 /* RecordingStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409D2B7A5C3BA4C3655D2D0B /* RecordingStorageTests.swift */; };
+		C990834CF09379E2849CA105 /* RecordingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A37B722C2E4BA1A56D073A /* RecordingsView.swift */; };
+		CC413DBD5D4AA66824435DCA /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EE627EB5516E1304321F64 /* AppState.swift */; };
+		D01080FCEAD7759C3629D748 /* TTLCleanerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC25BC191D8C69324AD4EAA /* TTLCleanerTests.swift */; };
+		E2A3B4C5D6E7F8091234ABCD /* AppStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B4C5D6E7F80A1B2C3D4E5F /* AppStateTests.swift */; };
+		DD39FFDA68388AD7246B361E /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F19AE10D16A69F13AAC37B /* Recording.swift */; };
+		DD4E90183B280B979ECB3AA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68C6CE38D7FF39F1384EADF1 /* Assets.xcassets */; };
+		E4C4C1FE527F468F31D4CEBE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97246C7673030568D901E24 /* ContentView.swift */; };
+		F1A2B3C4D5E6F7089012ABCD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60718293A4B5C /* HomeView.swift */; };
+		F2B3C4D5E6F70819THEME001 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B3C4D5E6F70819THEME002 /* Theme.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8A235652864066434BD836DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1934F3E005EB0DF43F860D30 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B9976D736CEED23632468326;
+			remoteInfo = Watchdawg;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0EEE53627EF7B99905DA65C2 /* MockCameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCameraManager.swift; sourceTree = "<group>"; };
+		1ADB16CFCA3D3EDE6F7309C7 /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
+		2FD8AE9B1DB7226140005D02 /* WatchdawgApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchdawgApp.swift; sourceTree = "<group>"; };
+		30B475F3A2E9984A72D92AFC /* VideoQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoQuality.swift; sourceTree = "<group>"; };
+		409D2B7A5C3BA4C3655D2D0B /* RecordingStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingStorageTests.swift; sourceTree = "<group>"; };
+		4F6CA3A650A4E4B908DA04F9 /* RecordingStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingStorage.swift; sourceTree = "<group>"; };
+		52F19AE10D16A69F13AAC37B /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
+		54EE627EB5516E1304321F64 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		66636D646491DC4D0A871139 /* WatchdawgTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WatchdawgTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		68C6CE38D7FF39F1384EADF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Assets.xcassets; path = Watchdawg/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		752DAFCAB49AB370BA787EFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		79A37B722C2E4BA1A56D073A /* RecordingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsView.swift; sourceTree = "<group>"; };
+		7B3E98AB9BB273A7527D2528 /* Watchdawg.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Watchdawg.entitlements; sourceTree = "<group>"; };
+		8838EE266A7ACCC8EB0EFBF7 /* Watchdawg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Watchdawg.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BC25BC191D8C69324AD4EAA /* TTLCleanerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTLCleanerTests.swift; sourceTree = "<group>"; };
+		F3B4C5D6E7F80A1B2C3D4E5F /* AppStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateTests.swift; sourceTree = "<group>"; };
+		A396FF4F1A9E8AE676912701 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B97246C7673030568D901E24 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F60718293A4B5C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		D9915426A3A3012425F6A488 /* TTLCleaner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTLCleaner.swift; sourceTree = "<group>"; };
+		F2B3C4D5E6F70819THEME002 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		2701CA0DCA5D08F7E6FA958D /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				1ADB16CFCA3D3EDE6F7309C7 /* CameraManager.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		2F52B4868DFA2C505D456CD5 = {
+			isa = PBXGroup;
+			children = (
+				F93B84EB33848830D3ED2907 /* Watchdawg */,
+				A99B574F4587098C26C6D52E /* WatchdawgTests */,
+				F39526F0F04B5E966E5900E1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5BC8CD04D8E93AB107F70F3C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				B97246C7673030568D901E24 /* ContentView.swift */,
+				A1B2C3D4E5F60718293A4B5C /* HomeView.swift */,
+				79A37B722C2E4BA1A56D073A /* RecordingsView.swift */,
+				A396FF4F1A9E8AE676912701 /* SettingsView.swift */,
+				F2B3C4D5E6F70819THEME002 /* Theme.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		86AF2511B9D5F77FECECAC2D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				54EE627EB5516E1304321F64 /* AppState.swift */,
+				52F19AE10D16A69F13AAC37B /* Recording.swift */,
+				30B475F3A2E9984A72D92AFC /* VideoQuality.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9DAC0A04FA47C4AFF665364F /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				4F6CA3A650A4E4B908DA04F9 /* RecordingStorage.swift */,
+				D9915426A3A3012425F6A488 /* TTLCleaner.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		A99B574F4587098C26C6D52E /* WatchdawgTests */ = {
+			isa = PBXGroup;
+			children = (
+				F3B4C5D6E7F80A1B2C3D4E5F /* AppStateTests.swift */,
+				0EEE53627EF7B99905DA65C2 /* MockCameraManager.swift */,
+				409D2B7A5C3BA4C3655D2D0B /* RecordingStorageTests.swift */,
+				9BC25BC191D8C69324AD4EAA /* TTLCleanerTests.swift */,
+			);
+			path = WatchdawgTests;
+			sourceTree = "<group>";
+		};
+		F39526F0F04B5E966E5900E1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8838EE266A7ACCC8EB0EFBF7 /* Watchdawg.app */,
+				66636D646491DC4D0A871139 /* WatchdawgTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F93B84EB33848830D3ED2907 /* Watchdawg */ = {
+			isa = PBXGroup;
+			children = (
+				68C6CE38D7FF39F1384EADF1 /* Assets.xcassets */,
+				752DAFCAB49AB370BA787EFD /* Info.plist */,
+				7B3E98AB9BB273A7527D2528 /* Watchdawg.entitlements */,
+				2FD8AE9B1DB7226140005D02 /* WatchdawgApp.swift */,
+				2701CA0DCA5D08F7E6FA958D /* Core */,
+				86AF2511B9D5F77FECECAC2D /* Models */,
+				9DAC0A04FA47C4AFF665364F /* Storage */,
+				5BC8CD04D8E93AB107F70F3C /* UI */,
+			);
+			path = Watchdawg;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A5726E56878BA52E3D1BAD2A /* WatchdawgTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30E6BF0C1EB53A11105BE86E /* Build configuration list for PBXNativeTarget "WatchdawgTests" */;
+			buildPhases = (
+				BA19BB6D73C75C88EA2B4B1A /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B7BE0D746B332E16C3E863F4 /* PBXTargetDependency */,
+			);
+			name = WatchdawgTests;
+			packageProductDependencies = (
+			);
+			productName = WatchdawgTests;
+			productReference = 66636D646491DC4D0A871139 /* WatchdawgTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B9976D736CEED23632468326 /* Watchdawg */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1ABEBAA77C0E4C484041C23A /* Build configuration list for PBXNativeTarget "Watchdawg" */;
+			buildPhases = (
+				48D66F31382721BDDE671877 /* Sources */,
+				105883137CA8777F3D943B55 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Watchdawg;
+			packageProductDependencies = (
+			);
+			productName = Watchdawg;
+			productReference = 8838EE266A7ACCC8EB0EFBF7 /* Watchdawg.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1934F3E005EB0DF43F860D30 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					B9976D736CEED23632468326 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = C4F1BCF8B17BEB47361BF68D /* Build configuration list for PBXProject "Watchdawg" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 2F52B4868DFA2C505D456CD5;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = F39526F0F04B5E966E5900E1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B9976D736CEED23632468326 /* Watchdawg */,
+				A5726E56878BA52E3D1BAD2A /* WatchdawgTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		105883137CA8777F3D943B55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD4E90183B280B979ECB3AA8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		48D66F31382721BDDE671877 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC413DBD5D4AA66824435DCA /* AppState.swift in Sources */,
+				6364ABCD675926C912DFE7F3 /* CameraManager.swift in Sources */,
+				E4C4C1FE527F468F31D4CEBE /* ContentView.swift in Sources */,
+				F1A2B3C4D5E6F7089012ABCD /* HomeView.swift in Sources */,
+				DD39FFDA68388AD7246B361E /* Recording.swift in Sources */,
+				571BDD6F8715421B5277AA73 /* RecordingStorage.swift in Sources */,
+				C990834CF09379E2849CA105 /* RecordingsView.swift in Sources */,
+				3BED8614659D3AC762497B3C /* SettingsView.swift in Sources */,
+				F2B3C4D5E6F70819THEME001 /* Theme.swift in Sources */,
+				3C12D79BDCF5BE665D86413A /* TTLCleaner.swift in Sources */,
+				22F0F1336DC025A89EF91039 /* VideoQuality.swift in Sources */,
+				13120D3B300FF03456FA84E9 /* WatchdawgApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA19BB6D73C75C88EA2B4B1A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2A3B4C5D6E7F8091234ABCD /* AppStateTests.swift in Sources */,
+				05028159A65A96C6AFD7F853 /* MockCameraManager.swift in Sources */,
+				7937F50B3FDFA1450692C5C5 /* RecordingStorageTests.swift in Sources */,
+				D01080FCEAD7759C3629D748 /* TTLCleanerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B7BE0D746B332E16C3E863F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B9976D736CEED23632468326 /* Watchdawg */;
+			targetProxy = 8A235652864066434BD836DF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		054FBD73FEA6C487DA57A294 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		165290C6389F917FDD00F233 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.watchdawg.tests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Watchdawg.app/Contents/MacOS/Watchdawg";
+			};
+			name = Debug;
+		};
+		BF73076D533ADF63167F5E7E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.watchdawg.tests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Watchdawg.app/Contents/MacOS/Watchdawg";
+			};
+			name = Release;
+		};
+		C82BC470C3103EA4C5FBA9EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		FC7CE048DFD4EAB0F323D4C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Watchdawg/Watchdawg.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Watchdawg/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.watchdawg.app;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		FD533066BC67826097912EEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Watchdawg/Watchdawg.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Watchdawg/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.watchdawg.app;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1ABEBAA77C0E4C484041C23A /* Build configuration list for PBXNativeTarget "Watchdawg" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC7CE048DFD4EAB0F323D4C0 /* Debug */,
+				FD533066BC67826097912EEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		30E6BF0C1EB53A11105BE86E /* Build configuration list for PBXNativeTarget "WatchdawgTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				165290C6389F917FDD00F233 /* Debug */,
+				BF73076D533ADF63167F5E7E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C4F1BCF8B17BEB47361BF68D /* Build configuration list for PBXProject "Watchdawg" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				054FBD73FEA6C487DA57A294 /* Debug */,
+				C82BC470C3103EA4C5FBA9EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1934F3E005EB0DF43F860D30 /* Project object */;
+}
