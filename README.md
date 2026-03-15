@@ -1,6 +1,6 @@
 # Watchdawg
 
-Home security camera for macOS.
+Home security camera for macOS because Ring sells my data :)
 
 [![Download for Mac](https://img.shields.io/badge/Download-For%20Mac-red?style=for-the-badge)](https://github.com/rafeyrana/watchdawg/releases/latest/download/Watchdawg.dmg)
 
