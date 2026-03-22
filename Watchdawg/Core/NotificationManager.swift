@@ -24,6 +24,11 @@ final class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         send(title: "Watchdawg", body: "The dawg is napping 💤", sound: AppState.shared.notificationSoundEnabled)
     }
 
+    func sendMotionDetectedNotification() {
+        guard AppState.shared.notificationsEnabled else { return }
+        send(title: "Watchdawg", body: "Motion detected! Recording started 👀", sound: AppState.shared.notificationSoundEnabled)
+    }
+
     private func send(title: String, body: String, sound: Bool) {
         let content = UNMutableNotificationContent()
         content.title = title

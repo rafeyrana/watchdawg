@@ -1,0 +1,70 @@
+name: Watchdawg
+options:
+  bundleIdPrefix: com.watchdawg
+  deploymentTarget:
+    macOS: "14.0"
+  xcodeVersion: "15.0"
+  createIntermediateGroups: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+
+targets:
+  Watchdawg:
+    type: application
+    platform: macOS
+    sources:
+      - path: Watchdawg
+        excludes:
+          - "**/*.xcassets"
+      - path: Watchdawg/Assets.xcassets
+        type: folder
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.watchdawg.app
+        INFOPLIST_FILE: Watchdawg/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Watchdawg/Watchdawg.entitlements
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        COMBINE_HIDPI_IMAGES: YES
+        LD_RUNPATH_SEARCH_PATHS:
+          - $(inherited)
+          - "@executable_path/../Frameworks"
+        ENABLE_HARDENED_RUNTIME: YES
+        CODE_SIGN_STYLE: Automatic
+    entitlements:
+      path: Watchdawg/Watchdawg.entitlements
+
+  WatchdawgTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: WatchdawgTests
+    dependencies:
+      - target: Watchdawg
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.watchdawg.tests
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/Watchdawg.app/Contents/MacOS/Watchdawg"
+        BUNDLE_LOADER: "$(TEST_HOST)"
+        GENERATE_INFOPLIST_FILE: YES
+
+schemes:
+  Watchdawg:
+    build:
+      targets:
+        Watchdawg: all
+        WatchdawgTests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - WatchdawgTests
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release

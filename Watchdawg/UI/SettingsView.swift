@@ -11,6 +11,7 @@ struct SettingsView: View {
         ScrollView {
             VStack(spacing: 20) {
                 qualitySection
+                sentryModeSection
                 notificationsSection
                 storageSection
                 autoDeleteSection
@@ -48,6 +49,66 @@ struct SettingsView: View {
                 Text("Lower quality uses less storage but may reduce clarity")
                     .font(.caption)
                     .foregroundStyle(.secondary)
+            }
+        }
+    }
+
+    // MARK: - Sentry Mode Section
+
+    private var sentryModeSection: some View {
+        SettingsCard(title: "Sentry Mode", icon: "eye.fill") {
+            VStack(spacing: 12) {
+                Toggle("Enable Sentry Mode", isOn: Binding(
+                    get: { appState.sentryModeEnabled },
+                    set: { appState.setSentryModeEnabled($0) }
+                ))
+
+                Text("Only record when motion is detected")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                Divider()
+
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Motion Sensitivity")
+                        .font(.subheadline)
+
+                    Slider(value: Binding(
+                        get: { Double(appState.motionSensitivity) },
+                        set: { appState.setMotionSensitivity(Float($0)) }
+                    ), in: 0.01...0.10)
+
+                    HStack {
+                        Text("Low")
+                            .font(.caption2)
+                            .foregroundStyle(.secondary)
+                        Spacer()
+                        Text("\(Int(appState.motionSensitivity * 100))%")
+                            .font(.caption2)
+                            .foregroundStyle(Theme.accent)
+                        Spacer()
+                        Text("High")
+                            .font(.caption2)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+                .opacity(appState.sentryModeEnabled ? 1.0 : 0.5)
+
+                Divider()
+
+                SettingsRow(label: "Stop After No Motion") {
+                    Picker("", selection: Binding(
+                        get: { appState.motionCooldown },
+                        set: { appState.setMotionCooldown($0) }
+                    )) {
+                        Text("5 seconds").tag(5)
+                        Text("10 seconds").tag(10)
+                        Text("30 seconds").tag(30)
+                    }
+                    .pickerStyle(.menu)
+                    .disabled(!appState.sentryModeEnabled)
+                }
             }
         }
     }

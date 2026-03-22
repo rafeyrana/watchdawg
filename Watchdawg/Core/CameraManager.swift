@@ -25,11 +25,18 @@ final class CameraManager: NSObject, ObservableObject {
 
     @Published private(set) var isRunning = false
     @Published private(set) var isRecording = false
+    @Published private(set) var isMotionActive = false
+    @Published var sentryModeEnabled = false
 
     private var movieOutput: AVCaptureMovieFileOutput?
+    private var videoDataOutput: AVCaptureVideoDataOutput?
     private let sessionQueue = DispatchQueue(label: "com.watchdawg.camera")
+    private let videoDataQueue = DispatchQueue(label: "com.watchdawg.videodata", qos: .userInteractive)
     private var chunkTimer: Timer?
     private var isConfigured = false
+    private var isSentryConfigured = false
+
+    private(set) var motionDetector: MotionDetector?
 
     private static let chunkDuration: TimeInterval = 5 * 60
     private static let recordingFinalizationDelay: TimeInterval = 0.5
@@ -143,6 +150,51 @@ final class CameraManager: NSObject, ObservableObject {
         movieOutput = output
     }
 
+    // MARK: - Sentry Mode Configuration
+
+    func configureSentryMode(config: MotionDetectorConfig) {
+        sessionQueue.async { [weak self] in
+            guard let self else { return }
+
+            guard !isSentryConfigured else { return }
+
+            session.beginConfiguration()
+
+            // Add video data output for frame analysis
+            let output = AVCaptureVideoDataOutput()
+            output.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA]
+            output.alwaysDiscardsLateVideoFrames = true
+            output.setSampleBufferDelegate(self, queue: videoDataQueue)
+
+            if session.canAddOutput(output) {
+                session.addOutput(output)
+                videoDataOutput = output
+            }
+
+            session.commitConfiguration()
+
+            // Initialize motion detector on main thread
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                let detector = MotionDetector(config: config)
+                detector.delegate = self
+                motionDetector = detector
+                isSentryConfigured = true
+            }
+        }
+    }
+
+    func updateSentryConfig(motionThreshold: Float? = nil, cooldownSeconds: Int? = nil) {
+        Task { @MainActor in
+            if let threshold = motionThreshold {
+                motionDetector?.updateMotionThreshold(threshold)
+            }
+            if let cooldown = cooldownSeconds {
+                motionDetector?.updateCooldownSeconds(cooldown)
+            }
+        }
+    }
+
     // MARK: - Session Control
 
     func start() async {
@@ -188,6 +240,37 @@ final class CameraManager: NSObject, ObservableObject {
                 self.isRunning = false
             }
         }
+    }
+
+    // MARK: - Sentry Mode Control
+
+    func startSentryMode(motionSensitivity: Float, motionCooldown: Int) {
+        guard sentryModeEnabled else { return }
+
+        // Configure sentry if not already done
+        if !isSentryConfigured {
+            let config = MotionDetectorConfig(
+                motionThreshold: motionSensitivity,
+                cooldownSeconds: TimeInterval(motionCooldown)
+            )
+            configureSentryMode(config: config)
+        }
+
+        // Start monitoring after a brief delay to ensure configuration is complete
+        Task { @MainActor in
+            try? await Task.sleep(for: .milliseconds(500))
+            motionDetector?.startMonitoring()
+        }
+    }
+
+    func stopSentryMode() {
+        Task { @MainActor in
+            motionDetector?.stopMonitoring()
+        }
+        if isRecording {
+            stopRecording()
+        }
+        isMotionActive = false
     }
 
     // MARK: - Recording
@@ -291,5 +374,48 @@ extension CameraManager: AVCaptureFileOutputRecordingDelegate {
         )
 
         RecordingStorage.shared.add(recording)
+    }
+}
+
+// MARK: - Video Data Output Delegate
+
+extension CameraManager: AVCaptureVideoDataOutputSampleBufferDelegate {
+    func captureOutput(
+        _ output: AVCaptureOutput,
+        didOutput sampleBuffer: CMSampleBuffer,
+        from connection: AVCaptureConnection
+    ) {
+        // Only process frames when sentry mode is enabled
+        guard sentryModeEnabled else { return }
+        motionDetector?.processFrame(sampleBuffer)
+    }
+}
+
+// MARK: - Motion Detector Delegate
+
+extension CameraManager: MotionDetectorDelegate {
+    func motionDetector(_ detector: MotionDetector, motionStarted timestamp: CMTime) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            isMotionActive = true
+
+            // Start recording if not already recording
+            if !isRecording {
+                startRecording()
+                NotificationManager.shared.sendMotionDetectedNotification()
+            }
+        }
+    }
+
+    func motionDetector(_ detector: MotionDetector, motionEnded timestamp: CMTime) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            isMotionActive = false
+
+            // Stop recording when motion ends (in sentry mode)
+            if isRecording && sentryModeEnabled {
+                stopRecording()
+            }
+        }
     }
 }

@@ -60,6 +60,7 @@ struct HomeView: View {
 
     private var statusText: String {
         if camera.isRecording { return "Recording" }
+        if appState.isArmed && appState.sentryModeEnabled { return "Watching" }
         if appState.isArmed { return "Armed" }
         return "Idle"
     }
@@ -70,12 +71,16 @@ struct HomeView: View {
         GeometryReader { geometry in
             Group {
                 if appState.isArmed {
-                    CameraSurface(session: camera.session)
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 12)
-                                .stroke(Theme.accent, lineWidth: 2)
-                        )
+                    ZStack {
+                        CameraSurface(session: camera.session)
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .stroke(Theme.accent, lineWidth: 2)
+                            )
+
+                        motionOverlay
+                    }
                 } else {
                     previewPlaceholder
                 }
@@ -83,6 +88,25 @@ struct HomeView: View {
             .frame(width: geometry.size.width, height: geometry.size.height)
         }
         .padding(.horizontal, 20)
+    }
+
+    @ViewBuilder
+    private var motionOverlay: some View {
+        if appState.sentryModeEnabled && camera.isMotionActive {
+            VStack {
+                HStack {
+                    Spacer()
+                    Label("Motion!", systemImage: "figure.walk.motion")
+                        .font(.caption.bold())
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(Capsule().fill(Color.red))
+                        .foregroundColor(.white)
+                        .padding(8)
+                }
+                Spacer()
+            }
+        }
     }
 
     private var previewPlaceholder: some View {
@@ -196,7 +220,17 @@ struct HomeView: View {
 
                 try await Task.sleep(for: .seconds(1))
 
-                camera.startRecording()
+                if appState.sentryModeEnabled {
+                    // Sentry mode: start motion detection, recording starts on motion
+                    camera.startSentryMode(
+                        motionSensitivity: appState.motionSensitivity,
+                        motionCooldown: appState.motionCooldown
+                    )
+                } else {
+                    // Normal mode: start continuous recording
+                    camera.startRecording()
+                }
+
                 TTLCleaner.shared.startPeriodicCleanup()
             } catch {
                 self.error = error.localizedDescription
@@ -206,6 +240,9 @@ struct HomeView: View {
     }
 
     private func stopWatching() {
+        if appState.sentryModeEnabled {
+            camera.stopSentryMode()
+        }
         camera.stop()
         appState.disarm()
     }

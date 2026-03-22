@@ -18,6 +18,11 @@ class AppState: ObservableObject {
     @Published var notificationsEnabled: Bool = true
     @Published var notificationSoundEnabled: Bool = true
 
+    // Sentry Mode settings
+    @Published var sentryModeEnabled: Bool = false
+    @Published var motionSensitivity: Float = 0.02  // 2% default
+    @Published var motionCooldown: Int = 10         // 10 seconds
+
     var isArmed: Bool {
         watchingState == .armed || watchingState == .recording
     }
@@ -63,6 +68,27 @@ class AppState: ObservableObject {
         UserDefaults.standard.set(enabled, forKey: "notificationSoundEnabled")
     }
 
+    func setSentryModeEnabled(_ enabled: Bool) {
+        sentryModeEnabled = enabled
+        UserDefaults.standard.set(enabled, forKey: "sentryModeEnabled")
+        // Sync with CameraManager
+        CameraManager.shared.sentryModeEnabled = enabled
+    }
+
+    func setMotionSensitivity(_ sensitivity: Float) {
+        motionSensitivity = sensitivity
+        UserDefaults.standard.set(sensitivity, forKey: "motionSensitivity")
+        // Update camera manager config
+        CameraManager.shared.updateSentryConfig(motionThreshold: sensitivity)
+    }
+
+    func setMotionCooldown(_ cooldown: Int) {
+        motionCooldown = cooldown
+        UserDefaults.standard.set(cooldown, forKey: "motionCooldown")
+        // Update camera manager config
+        CameraManager.shared.updateSentryConfig(cooldownSeconds: cooldown)
+    }
+
     private func loadSettings() {
         if let qualityString = UserDefaults.standard.string(forKey: "videoQuality"),
            let quality = VideoQuality(rawValue: qualityString) {
@@ -75,6 +101,17 @@ class AppState: ObservableObject {
         if UserDefaults.standard.object(forKey: "notificationSoundEnabled") != nil {
             notificationSoundEnabled = UserDefaults.standard.bool(forKey: "notificationSoundEnabled")
         }
+
+        // Load Sentry Mode settings
+        sentryModeEnabled = UserDefaults.standard.bool(forKey: "sentryModeEnabled")
+        CameraManager.shared.sentryModeEnabled = sentryModeEnabled
+
+        if UserDefaults.standard.object(forKey: "motionSensitivity") != nil {
+            motionSensitivity = UserDefaults.standard.float(forKey: "motionSensitivity")
+        }
+
+        let savedCooldown = UserDefaults.standard.integer(forKey: "motionCooldown")
+        motionCooldown = savedCooldown > 0 ? savedCooldown : 10
     }
 
     private func saveSettings() {
